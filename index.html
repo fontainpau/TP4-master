@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        button {
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3><button id="startGame" class="btn btn-secondary btn-sm">Demarrer une partie !</button></h3>
+    </div>
+    <div class="container" style="display: none">
+        <div class="row">
+            <div id="0" class="col-3">
+                <h3 class="cityName">Paris</h3>
+                <img src="img/village.png"><br>
+                Blé : <span class="cornNumber"></span><br>
+                Or : <span class="goldNumber"></span><br>
+                <button class="btn btn-secondary btn-sm buyMerchant">Acheter un marchand</button><br>
+                <button class="btn btn-secondary btn-sm buyTroop">Acheter une troupe</button><br>
+                <div class="marchand">
+                    <img src="img/merchant.png"><br>
+                    Marchand : <span class="marchandAction"></span><br>
+                    Progression : <span class="marchandProgressBar"></span><br>
+                    <button class="btn btn-secondary btn-sm openNextDiv">Marchander avec ...</button><br>
+                    <div style="display: none">
+                        <button class="btn btn-secondary btn-sm makeTrade">2</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">3</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">4</button>
+                    </div>
+                </div>
+                <div class="listTroop">
+                    <div class="0">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="1">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="2">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="3">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                </div>
+            </div>
+            <div id="1" class="col-3">
+                <h3 class="cityName">London</h3>
+                <img src="img/village.png"><br>
+                Blé : <span class="cornNumber"></span><br>
+                Or : <span class="goldNumber"></span><br>
+                <button class="btn btn-secondary btn-sm buyMerchant">Acheter un marchand</button><br>
+                <button class="btn btn-secondary btn-sm buyTroop">Acheter une troupe</button><br>
+                <div class="marchand">
+                    <img src="img/merchant.png"><br>
+                    Marchand : <span class="marchandAction"></span><br>
+                    Progression : <span class="marchandProgressBar"></span><br>
+                    <button class="btn btn-secondary btn-sm openNextDiv">Marchander avec ...</button><br>
+                    <div style="display: none">
+                        <button class="btn btn-secondary btn-sm makeTrade">1</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">3</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">4</button>
+                    </div>
+                </div>
+                <div class="listTroop">
+                    <div class="0">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="1">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="2">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="3">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                </div>
+            </div>
+            <div id="2" class="col-3">
+                <h3 class="cityName">Rome</h3>
+                <img src="img/village.png"><br>
+                Blé : <span class="cornNumber"></span><br>
+                Or : <span class="goldNumber"></span><br>
+                <button class="btn btn-secondary btn-sm buyMerchant">Acheter un marchand</button><br>
+                <button class="btn btn-secondary btn-sm buyTroop">Acheter une troupe</button><br>
+                <div class="marchand">
+                    <img src="img/merchant.png"><br>
+                    Marchand : <span class="marchandAction"></span><br>
+                    Progression : <span class="marchandProgressBar"></span><br>
+                    <button class="btn btn-secondary btn-sm openNextDiv">Marchander avec ...</button><br>
+                    <div style="display: none">
+                        <button class="btn btn-secondary btn-sm makeTrade">1</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">2</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">4</button>
+                    </div>
+                </div>
+                <div class="listTroop">
+                    <div class="0">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="1">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="2">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="3">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">4</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                </div>
+            </div>
+            <div id="3" class="col-3">
+                <h3 class="cityName">Berlin</h3>
+                <img src="img/village.png"><br>
+                Blé : <span class="cornNumber"></span><br>
+                Or : <span class="goldNumber"></span><br>
+                <button class="btn btn-secondary btn-sm buyMerchant">Acheter un marchand</button><br>
+                <button class="btn btn-secondary btn-sm buyTroop">Acheter une troupe</button><br>
+                <div class="marchand">
+                    <img src="img/merchant.png"><br>
+                    Marchand : <span class="marchandAction"></span><br>
+                    Progression : <span class="marchandProgressBar"></span><br>
+                    <button class="btn btn-secondary btn-sm openNextDiv">Marchander avec ...</button><br>
+                    <div style="display: none">
+                        <button class="btn btn-secondary btn-sm makeTrade">1</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">2</button>
+                        <button class="btn btn-secondary btn-sm makeTrade">3</button>
+                    </div>
+                </div>
+                <div class="listTroop">
+                    <div class="0">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="1">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="2">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                    <div class="3">
+                        <img src="img/troop.png"><br>
+                        Troupe : <span class="troopAction"></span><br>
+                        Progression : <span class="troopProgressBar"></span><br>
+                        Vie : <span class="troopLife"></span><br>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer la cité ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">1</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">2</button>
+                            <button class="btn btn-secondary btn-sm makeAttackOnCity">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm openNextDiv">Attaquer le marchand ...</button><br>
+                        <div style="display: none">
+                            <button class="btn btn-secondary btn-sm attackMerchant">1</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">2</button>
+                            <button class="btn btn-secondary btn-sm attackMerchant">3</button>
+                        </div>
+                        <button class="btn btn-secondary btn-sm defend">Defendre</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        $("#startGame").click(function () {
+            requestServer("startGame");
+            setInterval(actualiseCity, 100);
+            $(".container").show()
+        });
+        
+        $(".buyMerchant").click(function () {
+            idCity = $(this).parent().attr('id');
+            requestServer("action/"+idCity+"/buyMerchant");
+        });
+
+        $(".buyTroop").click(function () {
+            idCity = $(this).parent().attr('id');
+            requestServer("action/"+idCity+"/buyTroop");
+        });
+
+        $(".openNextDiv").click(function () {
+            console.log("show")
+            $(this).next().next().show();
+        });
+
+        $(".makeTrade").click(function () {
+            idCity = $(this).parent().parent().parent().attr('id');
+            idCityToTrade = $(this).text()-1;
+            $(this).parent().hide();
+            requestServer("action/"+idCity+"/merchant/makeTrade/"+idCityToTrade);
+        });
+
+        $(".makeAttackOnCity").click(function () {
+            idCity = $(this).parent().parent().parent().parent().attr('id');
+            idTroop = $(this).parent().parent().attr('class');
+            idCityToAttack = $(this).text()-1;
+
+            console.log(idCity);
+            console.log(idTroop);
+            console.log(idCityToAttack);
+
+            $(this).parent().hide();
+            requestServer("action/"+idCity+"/troop/"+idTroop+"/makeAttackOnCity/"+idCityToAttack);
+        });
+
+        $(".makeAttackOnMerchant").click(function () {
+            idCity = $(this).parent().parent().parent().parent().attr('id');
+            idTroop = $(this).parent().parent().attr('class');
+            idCityToAttack = $(this).text()-1;
+            $(this).parent().hide();
+            requestServer("action/"+idCity+"/troop/"+idTroop+"/makeAttackOnMerchant/"+idCityToAttack);
+        });
+
+        $(".defend").click(function () {
+            idCity = $(this).parent().parent().parent().attr('id');
+            idTroop = $(this).parent().attr('class');
+            $(this).parent().hide();
+            requestServer("action/"+idCity+"/troop/"+idTroop+"/defend");
+        });
+
+        function requestServer(url){
+            req = new XMLHttpRequest();
+            req.open('GET', 'http://localhost:8080/'+url, false);
+            req.send(null);
+        }
+
+        function actualiseCity(){
+            req = new XMLHttpRequest();
+
+            req.onreadystatechange = function(){
+                if (req.readyState === 4) {
+                    if (req.status === 200) {
+
+                        listCity = JSON.parse(req.responseText);
+
+                        for(i = 0; i <= 3; i++){
+                            $("#"+i).children(".cornNumber").text(listCity[i].corn);
+                            $("#"+i).children(".goldNumber").text(listCity[i].gold);
+
+                            if(listCity[i].merchant !== '') {
+                                $("#"+i).children(".marchand").children(".marchandAction").text(listCity[i].merchant.action);
+                                $("#"+i).children(".marchand").children(".marchandProgressBar").text(listCity[i].merchant.progressBar);
+                                $("#"+i).children(".marchand").show();
+                            } else {
+                                $("#"+i).children(".marchand").hide();
+                            }
+
+
+                            if(typeof listCity[i].listTroop !== 'undefined') {
+                                for(j = 0; j < listCity[i].listTroop.length; j++){
+                                    $("#"+i).children(".listTroop").children("."+j).children(".troopAction").text(listCity[i].listTroop[j].action);
+                                    $("#"+i).children(".listTroop").children("."+j).children(".troopProgressBar").text(listCity[i].listTroop[j].progressBar);
+                                    $("#"+i).children(".listTroop").children("."+j).children(".troopLife").text(listCity[i].listTroop[j].life);
+                                    $("#"+i).children(".listTroop").children("."+j).show();
+                                }
+                                for(j; j <= 3; j++){
+                                    $("#"+i).children(".listTroop").children("."+j).children(".troopAction").text("");
+                                    $("#"+i).children(".listTroop").children("."+j).children(".troopProgressBar").text("");
+                                    $("#"+i).children(".listTroop").children("."+j).children(".troopLife").text("");
+                                    $("#"+i).children(".listTroop").children("."+j).hide();
+                                }
+                            }
+                        }
+
+                    } else {
+                        alert('There was a problem with the request.');
+                    }
+                }
+            };
+
+            req.open('GET', 'http://localhost:8080/getGame', false);
+            req.send(null);
+
+        }
+
+    </script>
+</body>
+</html>
